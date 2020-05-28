@@ -34,6 +34,7 @@ class Login extends React.PureComponent {
     // }
     return (
       <SafeAreaView style={styles.container}>
+          <StatusBar backgroundColor={'white'} />
         <View style={styles.logoContainer}>
           <View style={{height: 50, width: '100%'}} />
           <Image
@@ -57,7 +58,6 @@ class Login extends React.PureComponent {
           </View>
           <TouchableOpacity 
           onPress={
-            // authenticate()
             ()=>this.props.navigation.navigate("Registros")
           } 
           style={styles.send}>
