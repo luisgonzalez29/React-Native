@@ -18,7 +18,7 @@ class ProfileOne extends React.PureComponent {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor={'white'} />
+        <StatusBar backgroundColor={'#f4f6f6'}/>
         {/* <Header style={styles.header}>
         
           <View style={styles.left}>

@@ -210,6 +210,7 @@ const styles = StyleSheet.create({
   photoContainer: {
     width: '100%',
     height: 240,
+    marginVertical: 10,
   },
   picture: {
     alignSelf: 'center',
