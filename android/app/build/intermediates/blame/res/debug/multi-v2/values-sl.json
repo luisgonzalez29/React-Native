@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/activiti01/Desktop/ReactNative/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl.xml",
+            "outputFile": "/Users/activiti01/Desktop/Work/React-Native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl.xml",
             "map": [
                 {
                     "source": "/Users/activiti01/.gradle/caches/transforms-2/files-2.1/2b7e6ebaa515cd43f42fb356f0d1941c/appcompat-1.1.0/res/values-sl/values-sl.xml",
