@@ -107,7 +107,7 @@ class Home extends React.PureComponent {
                   borderRadius: 30,
                 }}
               >
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => alert("q procd raza")}>
                   <Image
                     style={{ alignSelf: "center", height: 30, width: 30 }}
                     source={require("../assets/icons/register.jpg")}
@@ -125,14 +125,6 @@ class Home extends React.PureComponent {
             </FooterTab>
           </Footer>
         </View>
-        {/* <Header style={styles.header}>
-       
-          <View style={styles.left}></View>
-          <View style={styles.middle}>
-            <Text style={styles.header_title}>Listado de Usuarios</Text>
-          </View>
-          <View style={styles.right}></View>
-        </Header> */}
       </SafeAreaView>
     );
   }

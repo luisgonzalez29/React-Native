@@ -15,22 +15,7 @@ import { NavigationHelpersContext } from "@react-navigation/native";
 
 class Login extends React.PureComponent {
   render() {
-    //   this.state = {
-    //     credentials:{
-    //        email: "",
-    //        password: ""
-    //     },
-    // };
-
     const data = ["luis.gonzalez2999@gmail.com", "12345678"];
-    // function authenticate(){
-    //   if (this.state.credentials.email=data[0]){
-    //     ()=>this.props.navigation.navigate("Registros")
-    //   }
-    //   else (
-    //     () => alert("Credenciales incorrectas")
-    //   )
-    // }
     return (
       <SafeAreaView style={styles.container}>
      <StatusBar backgroundColor={"white"} />
