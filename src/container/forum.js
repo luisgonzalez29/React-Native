@@ -28,20 +28,6 @@ export default class Forum extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar backgroundColor={'#f4f6f6'} />
-        {/* <Header style={styles.header}>
-            <View style={styles.left}>
-              <TouchableOpacity style={{ width: "100%", height: "100%", top:2, }}>
-                <Image
-                  style={{ height: "55%", width: 30, alignSelf: "center" }}
-                  source={require("../assets/icons/back.png")}
-                />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.middle}>
-              <Text style={styles.header_title}>Comentarios</Text>
-            </View>
-            <View style={styles.right}></View>
-          </Header> */}
         <View style={styles.photoContainer}>
           <MaterialInitials
             style={styles.picture}
@@ -205,6 +191,7 @@ const styles = StyleSheet.create({
   photoContainer: {
     width: '100%',
     height: 240,
+    marginVertical: 10,
   },
   picture: {
     alignSelf: 'center',
