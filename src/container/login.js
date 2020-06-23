@@ -9,55 +9,104 @@ import {
   Image,
   Alert,
   KeyboardAvoidingView,
+  TextInput
 } from "react-native";
-import { Input } from "native-base";
 import { NavigationHelpersContext } from "@react-navigation/native";
 
 class Login extends React.PureComponent {
+  constructor(){
+    super()
+    this.state = {
+      username: "luis.g",
+      password: "25601440",
+      userInput: "",
+      userPass: "",
+    };
+    this.handleChangeUser = this.handleChangeUser.bind(this);
+    this.handleChangePass = this.handleChangePass.bind(this)  
+  }
+
+  handleChangeUser(newUser){
+    this.setState({
+      userInput: newUser
+    })
+  }
+  handleChangePass(newPass){
+    this.setState({
+      userPass: newPass
+    })
+  }   
+  validate = () => {
+    if (
+      this.state.userInput === this.state.username &&
+      this.state.userPass == this.state.password
+    ) {
+      this.props.navigation.navigate("Registros");
+    } else {
+      Alert.alert(
+        "Credenciales Incorrectas",
+        "El usuario o contraseña proporcionada es incorrecta",
+        [
+          {
+            text: "Intentar nuevamente",
+            onPress: () => console.log("Ask me later pressed"),
+          },
+        ],
+        { cancelable: false }
+      );
+    }
+   
+  };
+
   render() {
-    const data = ["luis.gonzalez2999@gmail.com", "12345678"];
     return (
       <SafeAreaView style={styles.container}>
-     <StatusBar backgroundColor={"white"} />
-       
-          <View style={styles.logoContainer}>
-            <View style={{ height: 50, width: "100%" }} />
-            <Image
-              style={{ alignSelf: "center", height: 180, width: 200 }}
-              source={require("../assets/native.png")}
+        <StatusBar backgroundColor={"white"} />
+
+        <View style={styles.logoContainer}>
+          <View style={{ height: 50, width: "100%" }} />
+          <Image
+            style={{ alignSelf: "center", height: 180, width: 200 }}
+            source={require("../assets/native.png")}
+          />
+          <Text style={styles.name}>React Native</Text>
+          <Text style={styles.brand}>by Facebook</Text>
+        </View>
+
+        <View style={styles.cardContainer}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.commentTitle}>Inicio de sesión</Text>
+          </View>
+          <Text style={styles.loginSubtitle}>Nombre de Usuario: </Text>
+          <View style={styles.cardInput}>
+            <TextInput
+              style={styles.Input}
+              placeholder={"luis.gonzalez2999@gmail.com"}
+              onChangeText={this.handleChangeUser}
+              defaultValue={this.state.userInput}
+              autoCapitalize={false}
             />
-            <Text style={styles.name}>React Native</Text>
-            <Text style={styles.brand}>by Facebook</Text>
           </View>
-        
-          <View style={styles.cardContainer}>
-            <View style={styles.cardHeader}>
-              <Text style={styles.commentTitle}>Inicio de sesión</Text>
-            </View>
-            <Text style={styles.loginSubtitle}>Nombre de Usuario: </Text>
-            <View style={styles.cardInput}>
-              <Input
-                style={styles.Input}
-                placeholder={"luis.gonzalez2999@gmail.com"}
-              />
-            </View>
-            <Text style={styles.loginSubtitle}>Contraseña</Text>
-            <View style={styles.cardInput}>
-              <Input style={styles.Input} placeholder={"12345678..."} />
-            </View>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Registros")}
-              style={styles.send}
-            >
-              <Text style={styles.sendButton}>Iniciar sesión</Text>
-            </TouchableOpacity>
-            <Text style={styles.registry}>Proyecto hecho por:</Text>
-            <Text style={styles.registry}>Luis Gonzalez</Text>
-            <Text style={styles.registry}>Shantal De Leon</Text>
-            <Text style={styles.registry}>Tony Zhu</Text>
-            <Text style={styles.registry}>Alfonso Alvarado</Text>
-            <Text style={styles.registry}>Luis Torres</Text>
+          <Text style={styles.loginSubtitle}>Contraseña</Text>
+          <View style={styles.cardInput}>
+            <TextInput
+              style={styles.Input}
+              placeholder={"12345678..."}
+              onChangeText={this.handleChangePass}
+              defaultValue={this.state.userPass}
+              autoCapitalize={false}
+            />
           </View>
+          <TouchableOpacity onPress={() => this.validate()} style={styles.send}>
+            <Text style={styles.sendButton}>Iniciar sesión</Text>
+          </TouchableOpacity>
+          <Text style={styles.registry}>{this.state.userInput}</Text>
+          <Text style={styles.registry}>Luis Gonzalez</Text>
+          <Text style={styles.registry}>Shantal De Leon</Text>
+          <Text style={styles.registry}>Tony Zhu</Text>
+          <Text style={styles.registry}>Alfonso Alvarado</Text>
+          <Text style={styles.registry}>Luis Torres</Text>
+        </View>
       </SafeAreaView>
     );
   }
@@ -87,6 +136,7 @@ const styles = StyleSheet.create({
     color: "grey",
     marginRight: 10,
     fontStyle: "italic",
+    width:"100%"
   },
   commentTitle: {
     fontSize: 20,
